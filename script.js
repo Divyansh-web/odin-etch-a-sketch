@@ -1,5 +1,5 @@
 const gridContainer = document.getElementById('grid-container');
-let color = 'black'; 
+let color = 'lightgray'; 
 // Create the grid of 16x16 divs
 function make_grid(size){
     for (let i = 0; i < size * size; i++) {
@@ -31,4 +31,14 @@ function colorSquare(){
 
 function changeColor(choice){
     color = choice;
+}
+
+function changeSize(){
+    const size = document.getElementById("size");
+    const sizeInt = parseInt(size.value);
+    const div = document.querySelectorAll(".grid-item");
+    for(let i = 0; i < div.length ; ++i){
+        div[i].remove();
+    }
+    make_grid(sizeInt)
 }
